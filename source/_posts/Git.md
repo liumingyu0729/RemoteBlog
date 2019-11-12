@@ -1,17 +1,19 @@
 ---
-title: Git-1
+title: Git
 date: 2019-11-11 09:46:09
-tags:
+tags: Git
 ---
 bare repository
 裸版本库（无工作区）
+origin
+远程
 ### Git命令
 git init
 创建版本库
 git clone A/B A/B-clone
 克隆
-git add 文件1 文件2
-修改过的文件和新文件加入到下次提交中
+git add 文件
+加入到下次提交中
 git rm
 要删除的文件
 git commit --message " "
@@ -19,7 +21,7 @@ git commit --message " "
 git pull origin next:master
 取回修改
 git push 路径 branch
-上载修改
+上载修改 -u指定一个默认主机
 git status
 检查状态
 git diff 文件
