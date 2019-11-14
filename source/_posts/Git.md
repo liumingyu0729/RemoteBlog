@@ -28,3 +28,7 @@ git diff 文件
 显示每个被修改的行
 git log
 历史 --oneline --graph
+指定远程
+增加
+
+
