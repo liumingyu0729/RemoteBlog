@@ -12,6 +12,8 @@ git init
 创建版本库
 git clone A/B A/B-clone
 克隆
+git remote add origin git@github.com:XXX/XXX.git
+指定远程
 git add 文件
 加入到下次提交中
 git rm
@@ -28,7 +30,3 @@ git diff 文件
 显示每个被修改的行
 git log
 历史 --oneline --graph
-指定远程
-增加
-
-
