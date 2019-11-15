@@ -30,3 +30,7 @@ git diff 文件
 显示每个被修改的行
 git log
 历史 --oneline --graph
+
+master 主分支
+dev 开发分支
+beta 测试版
