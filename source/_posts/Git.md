@@ -7,6 +7,8 @@ bare repository
 裸版本库（无工作区）
 origin
 远程
+ssh-keygen -t rsa -C XXX@XXX.com
+cat ~/.ssh/id_rsa.pub
 ### Git命令
 git init
 创建版本库
