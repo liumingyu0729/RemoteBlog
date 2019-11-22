@@ -32,6 +32,10 @@ git diff 文件
 显示每个被修改的行
 git log
 历史 --oneline --graph
+### bash
+i 插入模式
+Esc
+:wq 修改并退出
 
 master 主分支
 dev 开发分支
