@@ -27,8 +27,22 @@ Software Development Kit | SDK | 一个过时的术语，用于描述1998年~200
 
 类型 | 储存需求 
 :-: | :-: 
-int | 4字节
-short | 2字节
-long | 8字节
-byte | 1字节
+int | 4 字节
+short | 2 字节
+long | 8 字节
+byte | 1 字节
+float | 4 字节
+double | 8 字节
 
+final 常量
+int / int 整除
+(int) 强制类型转换
+enum Size {SMALL, MEDIUM, LARGE}; 枚举型
+String API
+&emsp;.equals() 判断字符串相等（不能用==）
+&emsp;.charAt() 字符串代码单元
+&emsp;.codePointCount() 字符串码点数量（实际长度）
+StringBuild
+&emsp;StringBuild build = new StringBuild();
+&emsp;build.append(ch);
+&emsp;String str = build.toString();
