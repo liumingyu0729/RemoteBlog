@@ -46,3 +46,8 @@ StringBuild
 &emsp;StringBuild build = new StringBuild();
 &emsp;build.append(ch);
 &emsp;String str = build.toString();
+BigInteger BigDecimal 大数值
+int[] a = new int[10] 数组
+&emsp;Array.copyOf() 深度拷贝
+main(string[] args) 命令行参数
+多维数组（数组的数组 不规则数组）
