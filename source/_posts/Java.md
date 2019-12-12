@@ -34,10 +34,15 @@ byte | 1 字节
 float | 4 字节
 double | 8 字节
 
-final 常量
-int / int 整除
-(int) 强制类型转换
-enum Size {SMALL, MEDIUM, LARGE}; 枚举型
+常量
+&emsp;final 
+整除
+&emsp;int / int 
+强制类型转换
+&emsp;(int) 
+枚举型
+&emsp;enum Size {SMALL, MEDIUM, LARGE}; 
+
 String API
 &emsp;.equals() 判断字符串相等（不能用==）
 &emsp;.charAt() 字符串代码单元
@@ -46,8 +51,42 @@ StringBuild
 &emsp;StringBuild build = new StringBuild();
 &emsp;build.append(ch);
 &emsp;String str = build.toString();
-BigInteger BigDecimal 大数值
-int[] a = new int[10] 数组
-&emsp;Array.copyOf() 深度拷贝
-main(string[] args) 命令行参数
+大数值
+&emsp;BigInteger BigDecimal 
+深度拷贝
+&emsp;Array.copyOf() 
+命令行参数
+&emsp;main(string[] args) 
 多维数组（数组的数组 不规则数组）
+
+类之间的关系
+&emsp;依赖 use-a
+&emsp;聚合 has-a
+&emsp;继承 is-a
+更改器方法 访问器方法（不修改对象）
+
+实例域
+&emsp;final 
+静态域
+&emsp;static 
+工厂方法
+&emsp;NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(); 
+
+类导入
+&emsp;java.time.LocalDate today = java.time.LocalDate.now();
+&emsp;import java.util.*;
+静态导入
+&emsp;import static
+将类放入包中
+&emsp;package com.horstmann.corejava;
+设置类路径
+&emsp;-classpath
+注释
+&emsp;/** */
+超类（父类 不能删除）
+&emsp;super
+阻止继承
+&emsp;final
+保护访问（子类可访问）
+&emsp;proteced
+Object（所有类的超类）
