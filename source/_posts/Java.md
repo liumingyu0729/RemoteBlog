@@ -90,3 +90,14 @@ StringBuild
 保护访问（子类可访问）
 &emsp;proteced
 Object（所有类的超类）
+&emsp;hashCode()
+&emsp;getClass() 返回Class类实例 class c = e.getClass();
+&emsp;getClass().newInstance() 动态创建实例
+&emsp;getName() 返回类名字
+&emsp;forName(className) 返回类对象
+&emsp;.class 返回类对象
+&emsp;invoke() 调用任意方法
+&emsp;getMethod() 获取Method对象
+接口
+&emsp;interface 
+&emsp;implement（不是类 不能new）
