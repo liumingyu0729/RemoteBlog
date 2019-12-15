@@ -23,6 +23,12 @@ OpenJDK | —— | Java SE的一个免费开源实现，不包括浏览器集成
 Java 2 | J2 | 一个过时的术语，用于描述1998年~2006年之间的Java版本
 Software Development Kit | SDK | 一个过时的术语，用于描述1998年~2006年之间的JDK
 
+JDK环境变量 
+系统变量 
+JAVA_HOME XXX\Java\jdkXXX
+Path %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+classpath .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar 
+
 数据类型
 
 类型 | 储存需求 
@@ -101,3 +107,25 @@ Object（所有类的超类）
 接口
 &emsp;interface 
 &emsp;implement（不是类 不能new）
+
+Tomcat 轻量级Java Web容器
+
+客户端
+HTML
+CSS
+JavaScript
+&emsp;ActiveX Web中插入多媒体的集成平台
+&emsp;jQuery
+&emsp;Ajax 异步的JavaScript和XML 
+&emsp;ActiveX框架
+
+服务端
+PHP
+&emsp;JSP/Servelet java嵌入HTML生成动态Web
+&emsp;ASP/ASP.NET 
+JavaEE MVC框架（模型 视图 控制器）
+Java开发Web应用框架
+Struts2
+Spring
+Hibermate 
+应用程序工作模式 C/S B/S C/S
