@@ -51,7 +51,7 @@ XXXapache-maven-3.6.0\conf\settings.xml
 ~~~
 本地仓库配置
 ~~~
-<localRepository>XXXmaven-repository\repository</ocalRepository>
+<localRepository>XXXmaven-repository\repository</localRepository>
 ~~~
 把配置好的settings.xml复制一份到maven-repository并配置阿里云仓库地址
 ~~~
@@ -123,4 +123,6 @@ Creating an Executable Jar 打包成一个jar包
     </plugins>
 </build>
 ~~~
-Lifecycle package
+Lifecycle package 打包
+jar包可用压缩文件打开
+java -jar 执行
