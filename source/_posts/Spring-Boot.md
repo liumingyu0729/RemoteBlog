@@ -126,3 +126,74 @@ Creating an Executable Jar 打包成一个jar包
 Lifecycle package 打包
 jar包可用压缩文件打开
 java -jar 执行
+
+Maven：Java项目管理和构建工具
+a-maven-project
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   └── resources
+│   └── test
+│       ├── java
+│       └── resources
+└── target
+a-maven-project 是项目名
+src/main/java Java源码的目录
+src/main/resources 存放资源文件的目录
+src/test/java 存放测试源码的目录
+src/test/resources 存放测试资源的目录
+pom.xml 项目描述文件
+~~~
+<project ...>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.itranswarp.learnjava</groupId>
+	<artifactId>hello</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<properties>
+        ...
+	</properties>
+	<dependencies>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+	</dependencies>
+</project>
+~~~
+groupId 类似于Java的包名，通常是公司或组织名称
+artifactId 类似于Java的类名，通常是项目名称
+Maven工程 groupId、artifactId和version作为唯一标识（引用其他第三方库）
+环境变量
+~~~
+M2_HOME=/path/to/maven-3.6.x
+PATH=$PATH:$M2_HOME/bin
+~~~
+Windows可以把%M2_HOME%\bin添加到系统Path变量中
+mvn -version
+依赖关系
+
+scope | 说明 | 示例
+:-: | :-: | :-:
+compile | 编译时需要用到该jar包（默认）| commons-logging
+test | 编译Test时需要用到该jar包 | junit
+runtime | 编译时不需要，但运行时需要用到 | mysql
+provided | 编译时需要用到，但运行时由JDK或某个服务器提供 | servlet-api
+
+Maven从中央仓库（repo1.maven.org）所需依赖下载到本地（或镜像仓库）
+~~~
+<settings>
+    <mirrors>
+        <mirror>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <mirrorOf>central</mirrorOf>
+            <!-- 国内推荐阿里云的Maven镜像 -->
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </mirror>
+    </mirrors>
+</settings>
+~~~
+以SNAPSHOT-开头的版本号会被Maven视为开发版本
