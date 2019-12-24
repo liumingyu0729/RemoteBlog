@@ -3,26 +3,6 @@ title: Spring-Boot
 date: 2019-12-16 15:46:13
 tags:
 ---
-Spring Boot CLI 安装
-&emsp;Windows 解压到JAVA_HOME
-&emsp;Unix 用Software Development Kit Manager(SDKAMN) (需要命令行补全)
-&emsp;OS X Homebrew MacPorts
-Spring Initializr
-&emsp;Web界面 https://start.spring.io/
-&emsp;Spring Tool Suite
-&emsp;IntelliJ IDEA
-&emsp;Spring Boot CLI
-&emsp;构建工具 Gradle (Groovy) Maven
-&emsp;src/main/java 应用程序
-&emsp;src/main/resource 资源
-&emsp;src/main/test 测试代码
-&emsp;build.gradle Gradle构建文件说明
-&emsp;XXXApplication.java 应用程序的启动引导类（bootstrap class）
-&emsp;application.properties 用于配置应用程序和Spring Boot属性（server.port = 8000）
-&emsp;XXXApplicationTests.java 基本测试类
-&emsp;Thymeleaf
-&emsp;Spring Data JPA
-
 约定大于配置
 微服务：架构风格
 一个应用可以是一组小型服务，可以通过HTTP互通
@@ -68,6 +48,9 @@ configure -> setting -> Build, Execution, Deployment -> Build Tool -> Maven
 Maven home directory: 从IDE自带换成安装的Maven
 User settings file: XXXmaven-repository\settings.xml 打勾
 Local repository: XXXmaven-repository\repository 打勾
+Ctrl + click 连接
+Alt + Insert 创建方法
+Ctrl + / 注释
 ### 创建Maven工程（jar）
 ### 导入依赖Spring Boot相关依赖
 Maven project need to be imported 自动导入依赖
@@ -127,73 +110,73 @@ Lifecycle package 打包
 jar包可用压缩文件打开
 java -jar 执行
 
-Maven：Java项目管理和构建工具
-a-maven-project
-├── pom.xml
-├── src
-│   ├── main
-│   │   ├── java
-│   │   └── resources
-│   └── test
-│       ├── java
-│       └── resources
-└── target
-a-maven-project 是项目名
-src/main/java Java源码的目录
-src/main/resources 存放资源文件的目录
-src/test/java 存放测试源码的目录
-src/test/resources 存放测试资源的目录
-pom.xml 项目描述文件
+## POM文件
+###父项目
 ~~~
-<project ...>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.itranswarp.learnjava</groupId>
-	<artifactId>hello</artifactId>
-	<version>1.0</version>
-	<packaging>jar</packaging>
-	<properties>
-        ...
-	</properties>
-	<dependencies>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
-        </dependency>
-	</dependencies>
-</project>
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.2.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+</parent>
 ~~~
-groupId 类似于Java的包名，通常是公司或组织名称
-artifactId 类似于Java的类名，通常是项目名称
-Maven工程 groupId、artifactId和version作为唯一标识（引用其他第三方库）
-环境变量
+它的父项目
 ~~~
-M2_HOME=/path/to/maven-3.6.x
-PATH=$PATH:$M2_HOME/bin
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-dependencies</artifactId>
+    <version>2.2.2.RELEASE</version>
+    <relativePath>../../spring-boot-dependencies</relativePath>
+</parent>
 ~~~
-Windows可以把%M2_HOME%\bin添加到系统Path变量中
-mvn -version
-依赖关系
+管理Spring Boot应用里所有依赖版本
+版本仲裁中心：处理默认版本
+### 导入依赖
+~~~
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+~~~
+spring-boot-starter：Spring Boot场景启动器
+@SpringBootApplication：Spring Boot主配置类（main方法）
 
-scope | 说明 | 示例
-:-: | :-: | :-:
-compile | 编译时需要用到该jar包（默认）| commons-logging
-test | 编译Test时需要用到该jar包 | junit
-runtime | 编译时不需要，但运行时需要用到 | mysql
-provided | 编译时需要用到，但运行时由JDK或某个服务器提供 | servlet-api
 
-Maven从中央仓库（repo1.maven.org）所需依赖下载到本地（或镜像仓库）
+@SpringBootConfiguration：Sring Boot配置类
+@Configuration：配置类（一个组件@Componet）
+@EnableAutoConfiguration：开启自动配置功能
+@AutoConfigurationPackage：自动配置包 
+由AutoConfigurationPackages.Registrar.class将主配置类所在包及子包所有组件加到Spring容器
+@Import() 给容器导入组件
+## Spring Initializer快速创建Spring Boot项目
+https://start.spring.io/
+@RestController = @Controller + @ResponseBody
+resource
+├── static 静态资源（js css image）
+├── templates 保存所有的模板页面（Sping Boot默认jar嵌入Tomcat 默认不支持jsp 模板引擎freemaker thymeleaf）
+└── application.properties Spring Boot应用配置文件（修改全局默认配置server.port=8081）
+application.yml 另一种Spring Boot应用配置文件
+YAML 以数据为中心
+~~~yml
+friend:
+  name: ls
+  age: 20
+friend: {name: ls,age: 20}
+pets:
+  - cat
+  - dog
+  - pig
+pets: [cat,dog,pig]
 ~~~
-<settings>
-    <mirrors>
-        <mirror>
-            <id>aliyun</id>
-            <name>aliyun</name>
-            <mirrorOf>central</mirrorOf>
-            <!-- 国内推荐阿里云的Maven镜像 -->
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-        </mirror>
-    </mirrors>
-</settings>
-~~~
-以SNAPSHOT-开头的版本号会被Maven视为开发版本
+key:空格value:空格 
+缩进控制层级关系（左对齐）
+字符串不用引号 “转义特殊字符 ‘不转义特殊字符
+@Component
+@ConfigurationProperties(prefix = "friend") 类中属性和配置文件绑定 乱码用setting格式转换
+@RunWith(SpringRunner.class) 测试期间注入容器
+application.properties
+friend.name = ls
+pets = cat,dog,pig
+@Value(#{friend.name}) 环境变量、配置文件、#{} SpEL 获取值
