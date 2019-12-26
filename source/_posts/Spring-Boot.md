@@ -49,8 +49,9 @@ Maven home directory: 从IDE自带换成安装的Maven
 User settings file: XXXmaven-repository\settings.xml 打勾
 Local repository: XXXmaven-repository\repository 打勾
 Ctrl + click 连接
-Alt + Insert 创建方法
+Alt + Insert Getter and Setter 创建方法 
 Ctrl + / 注释
+
 ### 创建Maven工程（jar）
 ### 导入依赖Spring Boot相关依赖
 Maven project need to be imported 自动导入依赖
@@ -153,12 +154,18 @@ spring-boot-starter：Spring Boot场景启动器
 ## Spring Initializer快速创建Spring Boot项目
 https://start.spring.io/
 @RestController = @Controller + @ResponseBody
-resource
-├── static 静态资源（js css image）
-├── templates 保存所有的模板页面（Sping Boot默认jar嵌入Tomcat 默认不支持jsp 模板引擎freemaker thymeleaf）
-└── application.properties Spring Boot应用配置文件（修改全局默认配置server.port=8081）
+
+resource文件夹
+
+* static 静态资源（js css image）
+
+* templates 保存所有的模板页面（Sping Boot默认jar嵌入Tomcat 默认不支持js p 模板引擎freemaker thymeleaf）
+* application.properties Spring Boot应用配置文件，支持松散绑定（修改全局默认配置server.port=8081）
+
 application.yml 另一种Spring Boot应用配置文件
+
 YAML 以数据为中心
+
 ~~~yml
 friend:
   name: ls
@@ -180,3 +187,12 @@ application.properties
 friend.name = ls
 pets = cat,dog,pig
 @Value(#{friend.name}) 环境变量、配置文件、#{} SpEL 获取值
+
+|                      | @ConfigurationProperties |  @Value  |
+| :------------------: | :----------------------: | :------: |
+|         功能         |         批量注入         | 单个指定 |
+| 松散绑定（松散语法） |           支持           |  不支持  |
+|         SpEL         |          不支持          |   支持   |
+|    JSR303数据校验    |           支持           |  不支持  |
+|     复杂类型封装     |           支持           |  不支持  |
+
