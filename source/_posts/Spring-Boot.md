@@ -196,3 +196,12 @@ pets = cat,dog,pig
 |    JSR303数据校验    |           支持           |  不支持  |
 |     复杂类型封装     |           支持           |  不支持  |
 
+@PropertySource(value = {"classpath:XXX.properities"}) 加载指定的配置文件
+
+@ImportResource(lacations= {"classpath:XXX.xml"}) 导入Spring配置文件
+
+推荐使用配置类
+
+* @Configuration 当前类是Spring Boot配置类 代替配置文件
+
+* @Bean  
