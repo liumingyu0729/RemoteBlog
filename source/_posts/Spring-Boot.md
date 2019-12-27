@@ -205,3 +205,53 @@ pets = cat,dog,pig
 * @Configuration 当前类是Spring Boot配置类 代替配置文件
 
 * @Bean  
+
+### 配置文件占位符
+
+* ${random.value} 
+* ${person.hello:hello}
+
+### Profile 切换环境
+
+application-XXX.properties/yml
+
+application.properties 中激活 spring.profiles.active=XXX
+
+yaml文件文档块
+
+~~~yaml
+server:
+    port:8081
+spring:
+    profiles:
+        active:dev
+---
+server:
+    port:8082
+spring:
+    profiles:dev
+---
+server:
+    port:8083
+spring:
+    profiles:prod
+~~~
+
+虚拟机参数 Run/Debug Configuration
+
+VM options: -Dspring.profiles.active=dev
+
+### 配置文件加载位置
+
+优先级由高到低 互补配置
+
+* file: ./config/
+* file: ./
+* classpath: /config/
+* classpath: /
+
+### 命令行更改配置
+
+--server.port = 8082
+
+由jar包外向jar包内寻找 优先加载pofile
