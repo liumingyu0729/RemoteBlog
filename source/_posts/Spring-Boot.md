@@ -255,3 +255,30 @@ VM options: -Dspring.profiles.active=dev
 --server.port = 8082
 
 由jar包外向jar包内寻找 优先加载pofile
+
+### 自动配置
+
+示例
+
+~~~Spring Boot
+@Configuration
+@EnableConfigurationProperties(HttpEncodingProperties.class)
+@ConfitionalOnWebApplication
+@ConditionalOnClass(CharacterEncodingFilter.class)
+@ConditionalOnProperty(prefix="spring.http.encoding", value="enabled", matchIfMissing=true)
+
+@Bean //给容器添加组件
+@ConditionalOnMissingBean(CharacterEncodingFilter.class)
+~~~
+
+Properties文件 debug = true #开启Spring Boot的debug模式
+
+## 日志
+
+|             日志门面              |          日志实现           |
+| :-------------------------------: | :-------------------------: |
+| ~~JCL~~、SLF4j、~~jboss-logging~~ | Log4j、JUL、Log4j2、Logback |
+
+Spring默认JCL
+
+Spring Boot选用SLF4j + Logback
