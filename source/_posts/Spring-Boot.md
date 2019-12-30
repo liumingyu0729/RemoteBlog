@@ -132,6 +132,9 @@ java -jar 执行
 ~~~
 管理Spring Boot应用里所有依赖版本
 版本仲裁中心：处理默认版本
+
+ 依赖关系图：右键 -> Diagrams -> Show Dependencies  Ctrl+滚轮 放大缩小
+
 ### 导入依赖
 ~~~
 <dependencies>
@@ -282,3 +285,34 @@ Properties文件 debug = true #开启Spring Boot的debug模式
 Spring默认JCL
 
 Spring Boot选用SLF4j + Logback
+
+### SLF4j
+
+系统中使用SLF4j
+
+~~~java
+Logger logger = LoggerFactory.getLogger(XXX.class); //记录器
+logger.info("XXX");
+~~~
+
+遗留问题：jar包将其他日志转为SLF4j  
+
+引入其他框架时时，要移除原有日志框架
+
+properties文件 logging.level.包 = trace debug 日志级别默认 info warn error
+
+ logging.path  logging.file  默认只输出在控制台
+
+### 日志指定配置
+
+logback.xml 日志框架识别
+
+logback.spring.xml 由Spring Boot识别，可以指定某段配置在某环境下识别
+
+~~~xml
+<sptingProfile name="dev">
+</sptingProfile>sptingProfile>
+~~~
+
+
+
