@@ -314,5 +314,17 @@ logback.spring.xml 由Spring Boot识别，可以指定某段配置在某环境�
 </sptingProfile>sptingProfile>
 ~~~
 
+静态资源映射
 
+* classpath: /META-INF/resources/
+* classpath: /resources/
+* classpath: /static/
+* classpath: /public/
+* 当前项目根目录
+
+欢迎页：静态资源文件夹下所有index.html
+
+XXX/favicon.ico也是在静态资源文件夹下查找
+
+properties文件指定静态路径（逗号分割） spring.resources.static-locations=classpath:/XXX,/XXX/XXX
 
