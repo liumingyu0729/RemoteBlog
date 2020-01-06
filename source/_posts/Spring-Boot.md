@@ -122,7 +122,7 @@ java -jar 执行
 </parent>
 ~~~
 它的父项目
-~~~
+~~~xml
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-dependencies</artifactId>
@@ -136,6 +136,9 @@ java -jar 执行
  依赖关系图：右键 -> Diagrams -> Show Dependencies  Ctrl+滚轮 放大缩小
 
 ### 导入依赖
+
+https://docs.spring.io/spring-boot/docs/2.2.2.RELEASE/reference/html/using-spring-boot.html#using-boot
+
 ~~~
 <dependencies>
     <dependency>
@@ -327,4 +330,28 @@ logback.spring.xml 由Spring Boot识别，可以指定某段配置在某环境�
 XXX/favicon.ico也是在静态资源文件夹下查找
 
 properties文件指定静态路径（逗号分割） spring.resources.static-locations=classpath:/XXX,/XXX/XXX
+
+以jar包引入资源：所有/webjars/** 在class path：/META-INF/resources/webjars/
+
+查依赖 https://www.webjars.org/
+
+“/**”访问当前项目任何资源  
+
+* classpath:/HETA-INF/resources/
+* classpath:/resources/
+* classpath:/static/
+* classpath:/public/
+* / 项目根路径
+
+### 模板引擎
+
+JSP、Velocity、Freemarker、Thymeleaf
+
+Thymeleaf
+
+~~~java
+private String prefix = "classpath:/templates/";
+private String suffix = ".html";
+//把html页面放在classpath:/templates/，Thymeleaf可以自动渲染
+~~~
 
