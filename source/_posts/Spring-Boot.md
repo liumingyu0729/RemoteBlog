@@ -1,5 +1,5 @@
 ---
-title: Spring-Boot
+rtitle: Spring-Boot
 date: 2019-12-16 15:46:13
 tags:
 ---
@@ -13,6 +13,7 @@ http://maven.apache.org/download.cgi 解压
 M2_HOME XXXapache-maven-3.5.0
 Path %M2_HOME%\bin
 mvn -v
+
 ### Maven设置
 XXXapache-maven-3.6.0\conf\settings.xml
 ~~~
@@ -355,3 +356,6 @@ private String suffix = ".html";
 //把html页面放在classpath:/templates/，Thymeleaf可以自动渲染
 ~~~
 
+### 虚拟机
+
+VirtualBox 重新初始化所有Mac地址
