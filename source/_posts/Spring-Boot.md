@@ -359,3 +359,29 @@ private String suffix = ".html";
 ### 虚拟机
 
 VirtualBox 重新初始化所有Mac地址
+linux防火墙
+
+### Docker
+
+yum install docker
+systemctl start docker
+systemctl enable docker 开机启动Docker
+systemctl stop docker
+
+docker search mysql Dockers hub搜索
+docker pull mysql
+docker logs
+
+docker images 查看安装的镜像
+docker rmi 镜像ID 删除镜像
+docker run --name 名 -d (后台运行) -p 虚拟机端口:容器端口 镜像名:标签 
+docker ps 正在运行的容器 (-a所有信息)
+docker stop 容器名或容器ID
+docker start 容器ID
+docker rm 容器ID
+
+~~~shell
+docker run --name mysql01 -e MYSQL_ROOT_PASSWORD=123456 -p 端口映射 -d mysql
+~~~
+
+Navicar
